@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="22630" started-at="2019-04-15T18:09:12Z" finished-at="2019-04-15T18:09:35Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="22630" started-at="2019-04-15T18:09:12Z" finished-at="2019-04-15T18:09:35Z">
+      <class name="webstoreselenium.qa.testcases.quote.Test_Quote_US">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:webstoreselenium.qa.testcases.quote.Test_Quote_US@61832929]" name="setUp" is-config="true" duration-ms="8946" started-at="2019-04-15T14:09:12Z" finished-at="2019-04-15T14:09:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="verify_US_quote()[pri:0, instance:webstoreselenium.qa.testcases.quote.Test_Quote_US@61832929]" name="verify_US_quote" duration-ms="10375" started-at="2019-04-15T14:09:21Z" finished-at="2019-04-15T14:09:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_US_quote -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:webstoreselenium.qa.testcases.quote.Test_Quote_US@61832929]" name="tearDown" is-config="true" duration-ms="3288" started-at="2019-04-15T14:09:32Z" finished-at="2019-04-15T14:09:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- webstoreselenium.qa.testcases.quote.Test_Quote_US -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

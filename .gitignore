@@ -1,0 +1,5 @@
+bin/
+*.properties
+*.classpath
+*.class
+test-output/

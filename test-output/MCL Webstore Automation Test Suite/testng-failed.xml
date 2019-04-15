@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [MCL Webstore Automation Test Suite]">
+  <listeners>
+    <listener class-name="webstoreselenium.qa.ExtentReportListener.ExtentReporterNG"/>
+  </listeners>
+  <test name="Smoke Test(failed)">
+    <classes>
+      <class name="webstoreselenium.qa.testcases.order.Test_Order_US">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="verify_US_order"/>
+        </methods>
+      </class> <!-- webstoreselenium.qa.testcases.order.Test_Order_US -->
+    </classes>
+  </test> <!-- Smoke Test(failed) -->
+</suite> <!-- Failed suite [MCL Webstore Automation Test Suite] -->

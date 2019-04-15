@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MCL Webstore UI Automation">
+
+	<listeners>
+		<listener class-name="webstoreselenium.qa.ExtentReportListener.ExtentReporterNG" />
+	</listeners>
+	
+  <test name="TestNG runner" preserve-order="true">
+    <classes>
+      <class name="webstoreselenium.qa.testcases.order.Test_Order_US"/>
+       <class name="webstoreselenium.qa.testcases.order.Test_Order_UK"/>
+       <class name="webstoreselenium.qa.testcases.quote.Test_Quote_US"/>
+       <class name="webstoreselenium.qa.testcases.quote.Test_Quote_UK"/>
+       
+
+    </classes>
+  </test>
+</suite> 
