@@ -30,7 +30,8 @@ public class CheckOut extends TestBase {
 	
 	
 	public void clickContinue(){
-		TestUtil.click(continue1);
+		//scroll into
+		TestUtil.clickJS(continue1);
 	}
 	
 	public void selectShipOptions(String value){
@@ -73,7 +74,7 @@ public class CheckOut extends TestBase {
 		TestUtil.clickJS(terms);
 		
 		TestUtil.waitForElementToClick(continue3);
-		TestUtil.click(continue3);
+		TestUtil.clickJS(continue3);
 		
 		return new OrderSummary();
 	}

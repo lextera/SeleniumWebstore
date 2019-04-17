@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="webstoreselenium.qa.testcases.UpdateProfileTest">
+      <class name="webstoreselenium.qa.testcases.quote.Test_Quote_UK">
         <methods>
-          <include name="verifyCreatedNewAddress"/>
           <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="verify_MCL_quote"/>
         </methods>
-      </class> <!-- webstoreselenium.qa.testcases.UpdateProfileTest -->
+      </class> <!-- webstoreselenium.qa.testcases.quote.Test_Quote_UK -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

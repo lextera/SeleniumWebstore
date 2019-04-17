@@ -33,6 +33,7 @@ public class Quote extends TestBase{
 		}catch(org.openqa.selenium.ElementNotVisibleException e){
 			//updated from 10 to 20 sec
 			TestUtil.isElementPresent(driver, "//input[@type='checkbox' and @name='quote.agreeTerm']", 20);
+			TestUtil.click(iAccept); // this is new
 		}
 		// put a wait 
 		TestUtil.waitTillElementFound(iAccept);
