@@ -18,6 +18,7 @@ public class DashBoard extends TestBase {
 	@FindBy(id = "qty_list") WebElement qty2;
 	@FindBy(id = "add_to_cart2") WebElement addToCart2;
 	@FindBy(id = "order_ez_sample_model") WebElement ezSample;
+	@FindBy(xpath = "//div[contains(text(), 'EZ-Sample Limit Exceeded')]") WebElement exceptionMessage1;
 	
 	
 	
@@ -40,5 +41,19 @@ public class DashBoard extends TestBase {
 		TestUtil.click(ezSample);
 		return new EZSamplePage();
 	}
+	public boolean isExceptionMessage1Displayed(){
+		TestUtil.click(ezSample);
+		//return exceptionMessage1.isDisplayed();
+		return exceptionMessage1.isEnabled();
+		
+	}
+	
+	public boolean isExceptionMessage2Displayed(){
+		TestUtil.click(ezSample);
+		//return exceptionMessage1.isDisplayed();
+		return exceptionMessage1.isEnabled();
+		
+	}
+	
 
 }

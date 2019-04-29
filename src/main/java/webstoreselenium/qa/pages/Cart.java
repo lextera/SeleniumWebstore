@@ -35,7 +35,7 @@ public class Cart extends TestBase {
 	public Quote clickConvertToQuote(){
 		//JSScrollIntoView
 		try{
-			TestUtil.isElementPresent(driver, "//a[text()='Convert To Quote']", 20).click();
+			TestUtil.isElementPresent(driver, "//a[text()='Convert To Quote']", 20).click(); // PROBLEM HERE
 		}catch(org.openqa.selenium.StaleElementReferenceException e){
 			TestUtil.click(toQuote);
 		}

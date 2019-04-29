@@ -57,7 +57,7 @@ public class Test_Quote_UK extends TestBase{
 		dashboard = indexPage.searchModel(model);
 		cart = dashboard.enterQtyAndAddToCart(qty);
 		cart.changeShipCountry("GB");
-		quote = cart.clickConvertToQuote();
+		quote = cart.clickConvertToQuote(); // PROBLEM  HERE
 		quoteConfirm = quote.produceQuote();
 		quoteConfirm.printQuoteID();
 		Assert.assertTrue(quoteConfirm.isQTYEquals(qty));

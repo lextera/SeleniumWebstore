@@ -23,17 +23,17 @@ public class Quote extends TestBase{
 	@FindBy(id="myModal") WebElement modalWindow;
 	By loadWindow = By.id("myModal");
 	
+	@FindBy(xpath="//span[@class='modal_bottom']//span[@id='ok']") WebElement popUpOk;
+	
 	public QuoteConfirmPage produceQuote(){		
 		TestUtil.click(continueButton);
 		TestUtil.scrollIntoViewJS(iAccept);
 		try{
-			TestUtil.click(iAccept);
-			// this is updated, delete if not working
-			//TestUtil.retryingFindClick("//input[@type='checkbox' and @name='quote.agreeTerm']");
+			TestUtil.clickJS(iAccept);
+
 		}catch(org.openqa.selenium.ElementNotVisibleException e){
-			//updated from 10 to 20 sec
-			TestUtil.isElementPresent(driver, "//input[@type='checkbox' and @name='quote.agreeTerm']", 20);
-			TestUtil.click(iAccept); // this is new
+			TestUtil.clickJS(popUpOk);
+			TestUtil.click(iAccept); 
 		}
 		// put a wait 
 		TestUtil.waitTillElementFound(iAccept);

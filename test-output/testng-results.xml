@@ -1,67 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="7" passed="4">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="MCL Webstore UI Automation" duration-ms="87380" started-at="2019-04-17T15:57:22Z" finished-at="2019-04-17T15:58:49Z">
+  <suite name="Default suite" duration-ms="33613" started-at="2019-04-29T17:15:58Z" finished-at="2019-04-29T17:16:32Z">
     <groups>
     </groups>
-    <test name="TestNG runner" duration-ms="87380" started-at="2019-04-17T15:57:22Z" finished-at="2019-04-17T15:58:49Z">
-      <class name="webstoreselenium.qa.testcases.quote.Test_Quote_US">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:webstoreselenium.qa.testcases.quote.Test_Quote_US@68c4039c]" name="setUp" is-config="true" duration-ms="3446" started-at="2019-04-17T11:58:22Z" finished-at="2019-04-17T11:58:25Z">
+    <test name="Default test" duration-ms="33613" started-at="2019-04-29T17:15:58Z" finished-at="2019-04-29T17:16:32Z">
+      <class name="webstoreselenium.qa.testcases.order.Test_Order_US_TestBoard">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:webstoreselenium.qa.testcases.order.Test_Order_US_TestBoard@61832929]" name="setUp" is-config="true" duration-ms="8724" started-at="2019-04-29T13:15:58Z" finished-at="2019-04-29T13:16:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verify_US_quote()[pri:0, instance:webstoreselenium.qa.testcases.quote.Test_Quote_US@68c4039c]" name="verify_US_quote" duration-ms="6688" started-at="2019-04-17T11:58:25Z" finished-at="2019-04-17T11:58:32Z">
+        <test-method status="PASS" signature="verify_US_order_testBoard()[pri:0, instance:webstoreselenium.qa.testcases.order.Test_Order_US_TestBoard@61832929]" name="verify_US_order_testBoard" duration-ms="21597" started-at="2019-04-29T13:16:07Z" finished-at="2019-04-29T13:16:29Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_US_quote -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:webstoreselenium.qa.testcases.quote.Test_Quote_US@68c4039c]" name="tearDown" is-config="true" duration-ms="3549" started-at="2019-04-17T11:58:32Z" finished-at="2019-04-17T11:58:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- webstoreselenium.qa.testcases.quote.Test_Quote_US -->
-      <class name="webstoreselenium.qa.testcases.order.Test_Order_UK">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:webstoreselenium.qa.testcases.order.Test_Order_UK@3532ec19]" name="setUp" is-config="true" duration-ms="3702" started-at="2019-04-17T11:57:55Z" finished-at="2019-04-17T11:57:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verify_UK_order()[pri:0, instance:webstoreselenium.qa.testcases.order.Test_Order_UK@3532ec19]" name="verify_UK_order" duration-ms="19807" started-at="2019-04-17T11:57:59Z" finished-at="2019-04-17T11:58:18Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_UK_order -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:webstoreselenium.qa.testcases.order.Test_Order_UK@3532ec19]" name="tearDown" is-config="true" duration-ms="3293" started-at="2019-04-17T11:58:18Z" finished-at="2019-04-17T11:58:22Z">
+        </test-method> <!-- verify_US_order_testBoard -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:webstoreselenium.qa.testcases.order.Test_Order_US_TestBoard@61832929]" name="tearDown" is-config="true" duration-ms="3272" started-at="2019-04-29T13:16:29Z" finished-at="2019-04-29T13:16:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- webstoreselenium.qa.testcases.order.Test_Order_UK -->
-      <class name="webstoreselenium.qa.testcases.quote.Test_Quote_UK">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:webstoreselenium.qa.testcases.quote.Test_Quote_UK@ae45eb6]" name="setUp" is-config="true" duration-ms="2576" started-at="2019-04-17T11:58:35Z" finished-at="2019-04-17T11:58:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verify_MCL_quote()[pri:0, instance:webstoreselenium.qa.testcases.quote.Test_Quote_UK@ae45eb6]" name="verify_MCL_quote" duration-ms="7283" started-at="2019-04-17T11:58:38Z" finished-at="2019-04-17T11:58:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_MCL_quote -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:webstoreselenium.qa.testcases.quote.Test_Quote_UK@ae45eb6]" name="tearDown" is-config="true" duration-ms="3843" started-at="2019-04-17T11:58:45Z" finished-at="2019-04-17T11:58:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- webstoreselenium.qa.testcases.quote.Test_Quote_UK -->
-      <class name="webstoreselenium.qa.testcases.order.Test_Order_US">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:webstoreselenium.qa.testcases.order.Test_Order_US@26653222]" name="setUp" is-config="true" duration-ms="4550" started-at="2019-04-17T11:57:22Z" finished-at="2019-04-17T11:57:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verify_US_order()[pri:0, instance:webstoreselenium.qa.testcases.order.Test_Order_US@26653222]" name="verify_US_order" duration-ms="25499" started-at="2019-04-17T11:57:26Z" finished-at="2019-04-17T11:57:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_US_order -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:webstoreselenium.qa.testcases.order.Test_Order_US@26653222]" name="tearDown" is-config="true" duration-ms="3112" started-at="2019-04-17T11:57:52Z" finished-at="2019-04-17T11:57:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- webstoreselenium.qa.testcases.order.Test_Order_US -->
-    </test> <!-- TestNG runner -->
-  </suite> <!-- MCL Webstore UI Automation -->
+      </class> <!-- webstoreselenium.qa.testcases.order.Test_Order_US_TestBoard -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

@@ -20,11 +20,19 @@ import webstoreselenium.qa.pages.WebMail;
  * (2) exception 1 : max of 5 sample in 30 days
  * (3) exception 2 : in 30 days
  * 
- * data 
- * CMA-62+
- * ERA-3+
- * GALI-4+ 
- * LEE-19+
+ * Test Data : 
+ * 		GALI-4+
+ *     CMA-62+
+ *     ERA-3+
+ *     EQY-0-63+ 
+ *     LEE-19+
+ * 
+ * Pre -Condition: 
+ * 
+ *   DELETE  from 
+ 	WEBORDER where order_type = 'S' and email = 'lextera@minicircuits.com'
+ 	
+ 	
  * select order_type, customer_id, order_id, email from 
  * WEBORDER where order_type = 'S' and email = 'lextera@minicircuits.com'
  */
@@ -42,6 +50,11 @@ public class Test_ezSample_sucess extends TestBase {
 	WebInbox webinbox;
 	
 	String model = "GALI-4+";
+	String model2 = "CMA-62+";
+	String model3 = "ERA-3+";
+	String model4 = "EQY-0-63+";
+	String model5 = "LEE-19+";
+	String modelx = "BFCG-162W+";
 	
 	public Test_ezSample_sucess() {
 		super();
@@ -57,37 +70,38 @@ public class Test_ezSample_sucess extends TestBase {
 		ezsample = new EZSamplePage();
 		ezcheckout = new EZsamplecheckout();
 		ezorderConfirm = new EZorderconfirmation();
-		
-
-		webmail = new WebMail();
-		webinbox = new WebInbox();
-	}
-	@Test
-	public void verify_EZorder_success(){
-		
 		loginPage = indexPage.signIn();
 		indexPage = loginPage.clickLogin(prop.getProperty("username"), prop.getProperty("password"));
+		
+
+		//webmail = new WebMail();
+		//webinbox = new WebInbox();
+	}
+	@Test (priority = 0)
+	public void verify_EZorder_success(){
+		
+
 		dashboard = indexPage.searchModel(model);
 		ezsample = dashboard.clickRequestSample();
 		ezcheckout = ezsample.enterRequireField();
 		ezcheckout.clickContinue();
 		ezorderConfirm = ezcheckout.acceptAndSubmit();
 		Assert.assertTrue(ezorderConfirm.isModelSame(model));
-		
-	
-		
-		/*
-		 * assert model. order num and generated email
-		 * 
-		 * 
-		 * **/
-
-		System.out.println("Current URL with order number :  " + driver.getCurrentUrl());
-
-	
+			
 	}
 	
-	@Test
+	@Test (priority = 1) // cannot order same order within 30 days
+	public void verify_Exception_noSameOrder1Month(){
+		dashboard = indexPage.searchModel(model);
+		Assert.assertTrue(dashboard.isExceptionMessage1Displayed());
+			
+	}
+	
+
+		
+	
+	
+	@Test(enabled = false)
 	public void verify_US_ezOrderEmail_generated(){
 		navigateToWebMail();
 		webinbox = webmail.login(prop.getProperty("username"), prop.getProperty("webmailpwd"));
@@ -97,7 +111,7 @@ public class Test_ezSample_sucess extends TestBase {
 		
 	}
 	
-	@AfterMethod (enabled = false)
+	@AfterMethod //(enabled = false)
 	public void tearDown(){
 		driver.manage().deleteAllCookies();
 		driver.close();
