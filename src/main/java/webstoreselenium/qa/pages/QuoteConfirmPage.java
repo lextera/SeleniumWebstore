@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import webstoreselenium.qa.base.TestBase;
+import webstoreselenium.qa.utils.TestUtil;
 
 public class QuoteConfirmPage extends TestBase{
 
@@ -15,6 +16,9 @@ public class QuoteConfirmPage extends TestBase{
 
 	@FindBy(xpath = "//span[@style='font-weight: bold']") WebElement quoteID;
 	@FindBy(xpath = "//div[@class='description_quality description_items_last_two']") WebElement qty;
+	@FindBy(xpath = "//a[contains(@href,'checkoutQC.html')]") WebElement hereButton;
+	
+	//a[contains(@href,'checkoutQC.html')]
 	
 	public void printQuoteID (){
  
@@ -44,8 +48,35 @@ public class QuoteConfirmPage extends TestBase{
 	 * continue convert quote
 	 * verify Qnumber, qty unit price
 	 * click home
+	 * @return 
 	 * 
 	 * */
+	public CheckOutQC clickConvertHere(){
+		TestUtil.click(hereButton);
+		return new CheckOutQC();
+		
+	}
+	
+	
+	
+	
+	
+	/**
+	 * click 'here' --> "checkOUtQC.html"
+	 * 		>select shipping method
+	 * 		>enter special instructions
+	 * 		> click continnue1
+	 * 		> click same as billing
+	 * 		>cick contnue 2
+	 * 		>i accept
+	 * 		>continue2 --> "orderSummaryQC"
+	 * 			>continue
+	 * 			>select credit card
+	 * 
+	 * 
+	 * 
+	 * */
+	
 	
 	
 	

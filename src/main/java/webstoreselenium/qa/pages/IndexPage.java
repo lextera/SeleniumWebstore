@@ -1,5 +1,7 @@
 package webstoreselenium.qa.pages;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import webstoreselenium.qa.base.TestBase;
@@ -15,6 +17,9 @@ public class IndexPage extends TestBase {
 		 * */
 		PageFactory.initElements(driver, this);
 	}
+	
+	@FindBy(xpath="//label[contains(text(),'RF Test Solutions')]") WebElement rfTestSol;
+	
 	//actions
 	public String validatePageTitle(){
 		return driver.getTitle();
@@ -62,7 +67,14 @@ public class IndexPage extends TestBase {
 		return new UpdateProfile();
 	}
 	
-
+	public PortTestEquip clickRFTestSolutions(){
+		TestUtil.click(rfTestSol);
+		return new PortTestEquip();
+	}
+	
+	
+	
+	
 	
 
 }

@@ -26,9 +26,17 @@ public class OrderSummary extends TestBase {
 	@FindBy(xpath = "//div[@id='myModal']//div[@class='header']") private WebElement modalConfirm;
 	By loadWindow = By.id("myModal");
 	@FindBy(id= "sumbit_mcl_order_confirmed") public WebElement confirmPopUp;
-	//@FindBy(id= "myModal") public WebElement loadXpath;
-	//div[@id='myModal']/div/div
 	
+	@FindBy(id="submit_tejas_order") WebElement submitOrder;
+	@FindBy(xpath="//span[contains(text(),'Cancel Order')]") WebElement cancelOrder;
+	
+	public void clickSubmitOrderTejas(){
+		TestUtil.click(submitOrder);
+	}
+	
+	public void clickCancelOrderTejas(){
+		TestUtil.click(cancelOrder);
+	}
 	
 
 	
@@ -47,10 +55,7 @@ public class OrderSummary extends TestBase {
 		TestUtil.clickJS(savedCC);
 
 		TestUtil.click(continue2); 
-		
-		//pop up appears
-		
-		
+			
 		
 	}
 	
@@ -74,6 +79,7 @@ public class OrderSummary extends TestBase {
 		wait.until(ExpectedConditions.);*/
 		return new OrderConfirmation();
 	}
+	
 	
 	
 }

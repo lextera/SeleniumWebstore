@@ -1,6 +1,5 @@
 package webstoreselenium.qa.utils;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,10 +13,9 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -173,6 +171,11 @@ public class TestUtil extends TestBase{
 	public static void waitTilURLContains(String url){
 		wait = new WebDriverWait(driver, WAIT_TIME_OUT);
 		wait.until(ExpectedConditions.urlContains(url));
+	}
+	
+	public static void moveToWebelement(WebElement MovetoWebElement){
+		Actions builder = new Actions(driver);
+		builder.moveToElement(MovetoWebElement).click().perform();
 	}
 
 	public static void selectFromDropdownByValue( WebDriver driver, WebElement element, String value){

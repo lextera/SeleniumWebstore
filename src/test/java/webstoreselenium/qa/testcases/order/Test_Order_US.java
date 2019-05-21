@@ -69,7 +69,7 @@ public class Test_Order_US extends TestBase {
 		ordersummary = checkout.clickIAcceptTermsAndCo();
 		ordersummary.selectExistingCard();
 		orderconfirmation = ordersummary.clickPlaceOrder();
-		System.out.println("--------------quote generated-----------------" + orderconfirmation.displayQuoteOrder());
+		System.out.println("--------------quote generated-----------------" + orderconfirmation.displayOrderNumber());
 		
 		// assert quantity is equals
 		Assert.assertTrue(orderconfirmation.isQTYEquals(qty));

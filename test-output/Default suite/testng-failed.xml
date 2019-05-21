@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="webstoreselenium.qa.testcases.ezsample.Test_ezSample_sucess">
+      <class name="webstoreselenium.qa.testcases.order.Test_Order_India">
         <methods>
-          <include name="verify_Excetion_cannotExceed5orders"/>
-          <include name="tearDown"/>
+          <include name="verify_order_details"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- webstoreselenium.qa.testcases.ezsample.Test_ezSample_sucess -->
+      </class> <!-- webstoreselenium.qa.testcases.order.Test_Order_India -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

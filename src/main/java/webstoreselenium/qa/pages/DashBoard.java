@@ -24,7 +24,12 @@ public class DashBoard extends TestBase {
 	
 	
 	public Cart enterQtyAndAddToCart(String quantity){
-		TestUtil.clearAndSendKeys(qty, quantity);
+		try{
+			TestUtil.clearAndSendKeys(qty, quantity);
+		}catch(org.openqa.selenium.NoSuchElementException e){
+			TestUtil.clearAndSendKeys(qty, quantity);
+		}
+		
 		TestUtil.click(addToCart);
 		return new Cart();
 		

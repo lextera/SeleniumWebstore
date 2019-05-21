@@ -12,17 +12,25 @@ public class OrderConfirmation extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy (xpath = "//div[@class= 'description_quality description_items_last_two']") private WebElement quantity;
+	@FindBy (xpath = "//div[@class= 'description_quality description_items_last_two']/span") private WebElement quantity;
+	@FindBy (xpath = "//a[contains(@href,'dashboard.html')]") private WebElement model;
 	@FindBy (xpath = "//div[@class='summary_title']/p[2]/span") private WebElement quoteOrder;
-	//div[@class='summary_title']/p[2]/span
+	//a[contains(@href,'dashboard.html')]
 	
 	public boolean isQTYEquals(String qty){
 		
-		return quantity.getText().equals(qty);
+		//return quantity.getText().equals(qty);
+		System.out.println("Actual Quantity is : " + quantity.getText().trim());
+		return quantity.getText().trim().equals(qty);
 		 
 	}
 	
-	public String displayQuoteOrder(){
+	public boolean isModelCorrect(String model1){
+		System.out.println("Actual Model is : " + model.getText().trim());
+		return model.getText().trim().equals(model1);
+	}
+	
+	public String displayOrderNumber(){
 		return quoteOrder.getText();
 	}
 }

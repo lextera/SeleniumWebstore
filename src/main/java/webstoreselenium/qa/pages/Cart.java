@@ -66,6 +66,8 @@ public class Cart extends TestBase {
 		return new CheckOut();
 	}
 	
+
+	
 	public IndexPage continueShopping(){
 		return new IndexPage();
 	}

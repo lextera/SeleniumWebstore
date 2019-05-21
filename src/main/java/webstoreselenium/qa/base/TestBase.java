@@ -40,6 +40,7 @@ public class TestBase {
 	@FindBy (xpath = "//div[@id='lgnDiv']//span[text()='sign in']") @CacheLookup private WebElement signInWeb;
 	@FindBy (xpath = "//a[@href='/WebStore/updateProfile.html']") public WebElement updateProfile;
 	@FindBy(xpath= "//p[contains(text(),'Your Account')]") public WebElement urAccount;
+	@FindBy(xpath= "//a[contains(text(),'Products')]") public WebElement product;
 	
 
 

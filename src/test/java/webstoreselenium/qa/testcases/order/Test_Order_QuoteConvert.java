@@ -1,4 +1,4 @@
-package webstoreselenium.qa.testcases.quote;
+package webstoreselenium.qa.testcases.order;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -7,17 +7,18 @@ import org.testng.annotations.Test;
 
 import webstoreselenium.qa.base.TestBase;
 import webstoreselenium.qa.pages.Cart;
+import webstoreselenium.qa.pages.CheckOutQC;
 import webstoreselenium.qa.pages.DashBoard;
 import webstoreselenium.qa.pages.HomePage;
 import webstoreselenium.qa.pages.IndexPage;
 import webstoreselenium.qa.pages.LoginPage;
+import webstoreselenium.qa.pages.OrderConfirmation;
+import webstoreselenium.qa.pages.OrderSummaryQC;
 import webstoreselenium.qa.pages.Quote;
 import webstoreselenium.qa.pages.QuoteConfirmPage;
-import webstoreselenium.qa.pages.WebInbox;
-import webstoreselenium.qa.pages.WebMail;
 
-public class Test_Quote_US extends TestBase {
-	
+
+public class Test_Order_QuoteConvert extends TestBase{
 	IndexPage indexPage;
 	LoginPage loginPage;
 	HomePage homePage;
@@ -25,18 +26,15 @@ public class Test_Quote_US extends TestBase {
 	Cart cart;
 	Quote quote;
 	QuoteConfirmPage quoteConfirm;
-	WebMail webmail;
-	WebInbox webinbox;
-	
-
-	
+	CheckOutQC checkOutQC;
+	OrderSummaryQC orderSumQC;
+	OrderConfirmation orderConfirm;
 	
 	String model = "ADE-2";
 	String qty = "8";
-	String quoteConfirmUrl = "";
-	String quoteGenerated = "";
+
 	
-	public Test_Quote_US(){
+	public Test_Order_QuoteConvert(){
 		super();
 	}
 	
@@ -50,12 +48,24 @@ public class Test_Quote_US extends TestBase {
 		cart = new Cart();
 		quote = new Quote();
 		quoteConfirm = new QuoteConfirmPage();
-		webmail = new WebMail();
-		webinbox = new WebInbox();
+		checkOutQC = new CheckOutQC();
+		orderSumQC = new OrderSummaryQC();
+		orderConfirm = new OrderConfirmation();
+		
+		//
+		/*click bill same as shipping
+		 * continue2
+		 * t&c + continue  --> order summaryQC > continue
+		 * 	select card > continue
+		 * 
+		 * 
+		 * */
+		
+		
 	}
 	
 	@Test
-	public void verify_US_quote() {
+	public void verify_convertQuoteToOrder() {
 		
 		loginPage = indexPage.signIn();
 		indexPage = loginPage.clickLogin(prop.getProperty("username"), prop.getProperty("password"));
@@ -63,30 +73,22 @@ public class Test_Quote_US extends TestBase {
 		dashboard.enterQtyAndAddToCart(qty);
 		quote = cart.clickConvertToQuote();
 		quoteConfirm = quote.produceQuote();
-		quoteConfirm.printQuoteID();
-		Assert.assertTrue(quoteConfirm.isQTYEquals(qty));
-		//quoteConfirmUrl = driver.getCurrentUrl();
-		quoteGenerated = quoteConfirm.getQuoteId();
-		System.out.println("-------------------Quote generated---------------------" +quoteConfirm.getQuoteId());
+		checkOutQC = quoteConfirm.clickConvertHere();
+		checkOutQC.selectShipMethod();
+		checkOutQC.clickBillInfoSame();
 		
+		orderSumQC = checkOutQC.clickIAcceptTermsAndCo();
+		orderSumQC.selectExistingCard();
+		orderConfirm = orderSumQC.clickPlaceOrder();
+		System.out.println(orderConfirm.displayOrderNumber());
+		
+		Assert.assertTrue(orderConfirm.isQTYEquals(qty));
+		Assert.assertTrue(orderConfirm.isModelCorrect(model));
 
 		
 	}
 	
-
-	@Test (enabled = false) //(dependsOnMethods = "verify_US_quote")
-	public void verify_US_quoteEmail_generated(){
-		
-		navigateToWebMail();
-		webinbox = webmail.login(prop.getProperty("username"), prop.getProperty("webmailpwd"));
-		System.out.println("------------------Quote from EMAIL-----------------------------"+webinbox.getQuoteID());
-		Assert.assertTrue(webinbox.getQuoteID().contains(quoteGenerated));
-		
-		
-	}
-	
-
-	@AfterMethod 
+	@AfterMethod //(enabled = false)
 	public void tearDown(){
 		driver.manage().deleteAllCookies();
 		driver.close();
