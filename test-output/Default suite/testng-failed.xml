@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="webstoreselenium.qa.testcases.order.Test_Order_India">
+      <class name="webstoreselenium.qa.testcases.order.Test_Order_US">
         <methods>
-          <include name="verify_order_details"/>
-          <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="verify_US_order"/>
         </methods>
-      </class> <!-- webstoreselenium.qa.testcases.order.Test_Order_India -->
+      </class> <!-- webstoreselenium.qa.testcases.order.Test_Order_US -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

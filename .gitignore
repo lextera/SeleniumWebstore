@@ -3,3 +3,5 @@ bin/
 *.classpath
 *.class
 test-output/
+/target/
+screenshots

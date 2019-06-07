@@ -8,10 +8,9 @@
 	
   <test name="TestNG runner" preserve-order="true">
     <classes>
-      <class name="webstoreselenium.qa.testcases.order.Test_Order_US"/>
-       <class name="webstoreselenium.qa.testcases.order.Test_Order_UK"/>
-       <class name="webstoreselenium.qa.testcases.quote.Test_Quote_US"/>
-       <class name="webstoreselenium.qa.testcases.quote.Test_Quote_UK"/>
+      <class name="webstoreselenium.qa.testcases.quote.Test_Quote_US"/>
+      <class name="webstoreselenium.qa.testcases.quote.Test_Quote_UK"/>
+
        
 
     </classes>

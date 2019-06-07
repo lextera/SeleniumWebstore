@@ -1,5 +1,7 @@
 package webstoreselenium.qa.utils;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
@@ -52,11 +54,11 @@ public class WebEventListener extends TestBase implements WebDriverEventListener
 
 	public void onException(Throwable error, WebDriver driver) {
 		System.out.println("Exception occured: " + error);
-/*		try {
-			WebUtil.takeScreenshotAtEndOfTest();
-		} catch (IOException e) {
+		try {
+			TestUtil.takeScreenshotAtEndOfTest();
+		} catch ( IOException e) {
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 	public void beforeFindBy(By by, WebElement element, WebDriver driver) {
@@ -145,4 +147,9 @@ public class WebEventListener extends TestBase implements WebDriverEventListener
 		// TODO Auto-generated method stub
 		
 	}
+
+/*	public void onException(Throwable throwable, WebDriver driver) {
+		// TODO Auto-generated method stub
+		
+	}*/
 }

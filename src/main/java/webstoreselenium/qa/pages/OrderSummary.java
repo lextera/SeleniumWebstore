@@ -29,6 +29,8 @@ public class OrderSummary extends TestBase {
 	
 	@FindBy(id="submit_tejas_order") WebElement submitOrder;
 	@FindBy(xpath="//span[contains(text(),'Cancel Order')]") WebElement cancelOrder;
+	@FindBy(id="new_cc") WebElement newCC;
+	
 	
 	public void clickSubmitOrderTejas(){
 		TestUtil.click(submitOrder);
@@ -59,6 +61,21 @@ public class OrderSummary extends TestBase {
 		
 	}
 	
+	public void payByCreditCard(){
+		TestUtil.click(continue1);
+		TestUtil.waitTillElementFound(selectCC);
+		TestUtil.click(selectCC);
+		//TestUtil.moveToWebelement(selectCC);
+		//TestUtil.waitForElementToClick(newCC);
+		try{
+			TestUtil.clickJS(newCC);	
+		}catch(org.openqa.selenium.TimeoutException e){
+			TestUtil.clickJS(newCC);	
+		}
+		
+		TestUtil.click(continue2); 
+	}
+	
 	public OrderConfirmation clickPlaceOrder(){
 		
 		//TestUtil.waitTillElementFound(modalConfirm); // pop up
@@ -78,6 +95,13 @@ public class OrderSummary extends TestBase {
 /*		wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.);*/
 		return new OrderConfirmation();
+	}
+	
+	public PayTracePage clickPlaceOrderGuestUser(){
+		TestUtil.waitTillElementFound(confirmPopUp);
+		TestUtil.clickJS(confirmPopUp);
+		
+		return new PayTracePage();
 	}
 	
 	

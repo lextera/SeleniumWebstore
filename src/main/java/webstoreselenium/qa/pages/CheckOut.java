@@ -11,6 +11,7 @@ import webstoreselenium.qa.utils.TestUtil;
 public class CheckOut extends TestBase {
 	JavascriptExecutor executor;
 	String testNote = "This is an automated test transaction from Software Team \n Pls disregard";
+	String email = "lex_acosta@yahoo.com";
 
 	
 	public CheckOut(){
@@ -32,25 +33,83 @@ public class CheckOut extends TestBase {
 	@FindBy (id = "tCountry")  WebElement selectCountry;
 	@FindBy(xpath="//span[@class='load_save_address']") WebElement loadSaveAddr;
 	@FindBy(xpath="//div[@id='myModal']//span[@id='ok']") WebElement okLoadAddr;
+	// for guest user
+	@FindBy (id = "first_name_ship")  WebElement fname;
+	@FindBy (id = "last_name_ship")  WebElement lname;
+	@FindBy (id = "street_ad_ship")  WebElement streeAdd;
+	@FindBy (id = "city_ship")  WebElement city;
+	@FindBy (id = "state_ship")  WebElement state;
+	@FindBy (xpath = "//input[@id='zip_ship' and @class='order_input zip']")  WebElement zip;
+	@FindBy(xpath="//select[@id='shipping_method']/option[3]") WebElement courier;
+	@FindBy (id = "email_address_bill")  WebElement emailBilling;
+	
 	
 	
 	
 	
 	public void clickContinue(){
 		//scroll into
-		TestUtil.clickJS(continue1);
+		try{
+			TestUtil.click(continue1);
+		}catch(org.openqa.selenium.StaleElementReferenceException e){
+			TestUtil.clickJS(continue1);	
+		}
+		
 	}
 	
 	public void selectShipOptions(String value){
 		TestUtil.clearAndSendKeys(deliverPhone, "98*99*100");
 		
+		TestUtil.waitTillElementFound(shippingMethod);
+		
 		TestUtil.selectFromDropdownByValue(driver, shippingMethod, value);
-		// try and catch
+	
+
 		try{
 			TestUtil.clearAndSendKeys(specInstrucText, testNote);
 		}catch(org.openqa.selenium.StaleElementReferenceException e){
 			TestUtil.clearAndSendKeys(specInstrucText, testNote);
 		}
+		
+	}
+	
+	public void enterNameAndAddress(String first, String last, String streetAdd, String cty, String stte, 
+			String zp, String phone){
+		TestUtil.clearAndSendKeys(fname, first);
+		TestUtil.clearAndSendKeys(lname, last);
+		TestUtil.clearAndSendKeys(streeAdd, streetAdd);
+		TestUtil.clearAndSendKeys(city, cty);
+	
+		TestUtil.clearAndSendKeys(deliverPhone, phone);
+		TestUtil.selectFromDropdownByValue(driver, state, stte); //selecting NY
+		TestUtil.clearAndSendKeys(zip, zp);
+	
+		TestUtil.scrollIntoViewJS(shippingMethod);
+		//TestUtil.click(shippingMethod);
+		TestUtil.moveToWebelement(shipFrom);
+		TestUtil.click(courier);
+	
+		
+		
+	}
+	
+	public void billInforForGuest(){
+		try{
+			TestUtil.clickJS(billSameShip);
+
+		}catch(org.openqa.selenium.ElementNotVisibleException e){
+			TestUtil.clickJS(billSameShip);
+		}
+		TestUtil.waitTillElementFound(emailBilling);
+		
+		
+		try{
+			TestUtil.clearAndSendKeys(emailBilling, email);
+		}catch(org.openqa.selenium.StaleElementReferenceException e){
+			//TestUtil.retryingFindClick("//input[@id='email_address_bill' and @name='checkout.email']");
+			TestUtil.clearAndSendKeys(emailBilling, email);
+		}
+		TestUtil.click(continue2);
 		
 	}
 	

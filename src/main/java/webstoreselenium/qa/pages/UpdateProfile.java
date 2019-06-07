@@ -1,6 +1,7 @@
 package webstoreselenium.qa.pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -13,7 +14,7 @@ public class UpdateProfile extends TestBase{
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath="//span[contains(text(),'Add New Address')]") WebElement addNewAddr;
+	@FindBy(xpath="//span[contains(text(),'Add New Address')]") @CacheLookup WebElement addNewAddr;
 	@FindBy(id="first_name_bill") WebElement fName;
 	@FindBy(id="last_name_bill") WebElement lName;
 	@FindBy(id="title_bill") WebElement title;

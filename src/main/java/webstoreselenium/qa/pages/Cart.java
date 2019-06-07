@@ -66,6 +66,11 @@ public class Cart extends TestBase {
 		return new CheckOut();
 	}
 	
+	public LoginPage checkOutGuestUser(){
+		TestUtil.click(checkOut);
+		return new LoginPage();
+	}
+	
 
 	
 	public IndexPage continueShopping(){

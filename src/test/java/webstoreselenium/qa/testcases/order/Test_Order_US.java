@@ -49,6 +49,7 @@ public class Test_Order_US extends TestBase {
 		homePage = new HomePage();
 		dashboard = new DashBoard();
 		cart = new Cart();
+		checkout = new CheckOut(); //
 		ordersummary =  new OrderSummary();
 		orderconfirmation = new OrderConfirmation();
 		webmail = new WebMail();
@@ -69,7 +70,7 @@ public class Test_Order_US extends TestBase {
 		ordersummary = checkout.clickIAcceptTermsAndCo();
 		ordersummary.selectExistingCard();
 		orderconfirmation = ordersummary.clickPlaceOrder();
-		System.out.println("--------------quote generated-----------------" + orderconfirmation.displayOrderNumber());
+		System.out.println("--------------ORDER# generated-----------------" + orderconfirmation.displayOrderNumber());
 		
 		// assert quantity is equals
 		Assert.assertTrue(orderconfirmation.isQTYEquals(qty));

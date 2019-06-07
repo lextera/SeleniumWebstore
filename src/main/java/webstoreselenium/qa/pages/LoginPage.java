@@ -13,7 +13,10 @@ public class LoginPage extends TestBase {
 	@FindBy(id= "account_password") WebElement pswd; 
 	@FindBy(id= "login") WebElement sigIn;
 	@FindBy(id= "ok") WebElement ok;
+	
 	@FindBy(xpath= "//div[@class='modal-content']/div[2]") public WebElement popUp;
+	@FindBy(id= "account_email") WebElement guestUser;
+	@FindBy(id= "longin_as_guest_button") WebElement continueAsGuest;
 	String textPopUp;
 	
 
@@ -44,6 +47,12 @@ public class LoginPage extends TestBase {
 		TestUtil.click(ok);
 		return textPopUp;
 
+	}
+	
+	public CheckOut enterGuestUserEmail(String email){
+		TestUtil.clearAndSendKeys(guestUser, email);
+		TestUtil.click(continueAsGuest);
+		return new CheckOut();
 	}
 	
 }
